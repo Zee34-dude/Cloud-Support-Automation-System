@@ -1,19 +1,19 @@
-<script setup>
-import SupportDashboard from './sidebar-components/SupportDashboard.vue';
-import SideBar from './AppComponents/SideBar.vue';
-
-import { ref } from 'vue';
-
-const sidebarOpen = ref(false);
-</script>
-
 <template>
   <div class="flex relative">
-    <SideBar :sidebarOpen="sidebarOpen" />
+    <SideBar />
     <router-view />
   </div>
 </template>
 
+<script setup>
+
+import SideBar from './AppComponents/SideBar.vue';
+import { ref, provide } from 'vue';
+
+const sidebarOpen = ref(false);
+
+provide('sidebarOpen', sidebarOpen);
+</script>
 <style scoped>
 header {
   line-height: 1.5;

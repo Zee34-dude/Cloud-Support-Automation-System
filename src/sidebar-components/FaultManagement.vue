@@ -12,7 +12,7 @@
         <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
 
           <!-- Ticket Categorization -->
-          <div class="bg-white rounded-lg p-6 flex-1">
+          <div class="bg-white rounded-lg p-6 w-[30%]">
             <h3 class="text-lg font-semibold text-gray-900 mb-4">Ticket Categorization</h3>
             <div class="space-y-3">
               <label class="flex items-center cursor-pointer">

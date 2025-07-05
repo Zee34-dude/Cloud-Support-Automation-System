@@ -1,5 +1,5 @@
 <template>
-    <div class="  bg-[#F4F0F0]">
+    <div class="w-full ">
         <Heading>
             <template #header>
                 Support Dashboard
@@ -22,8 +22,8 @@
 
                     <!-- Status Cards -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 bg-white ">
-                        <div v-for="(card, i) in statusCards" :key="card.title" :class="[
-                            '   p-4 sm:p-6',
+                        <router-link v-for="(card, i) in statusCards" :to="`/ticket-overview/${card.id}`" :key="card.title" :class="[
+                            '   p-4 sm:p-6 block',
                             { 'div-border': i !== 2 }
                         ]">
                             <div class="flex items-center justify-between mb-4">
@@ -33,7 +33,7 @@
                             </div>
                             <div class="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">{{ card.count }} Open</div>
                             <div class="text-sm text-gray-600">Tickets</div>
-                        </div>
+                        </router-link>
                     </div>
 
                     <!-- Chart Section with Chart.js -->
@@ -115,6 +115,7 @@ import AlertTriangleIcon from '@/assets/svg-icons/fluent-mdl2_alert-solid.svg'
 import Heading from '@/AppComponents/Heading.vue'
 import HealthIcon from '@/assets/svg-icons/fluent-mdl2_health-solid.svg'
 
+
 // Register Chart.js components
 Chart.register(...registerables)
 
@@ -136,9 +137,9 @@ let chartInstance = null
 
 
 const statusCards = ref([
-    { title: 'Subscription', count: 32, badgeClass: 'bg-[#00B454]' },
-    { title: 'Billing', count: 32, badgeClass: 'bg-[#F39D1C]' },
-    { title: 'Fault', count: 32, badgeClass: 'bg-[#E50303]' }
+    { title: 'Subscription', count: 32, badgeClass: 'bg-[#00B454]', id:1 },
+    { title: 'Billing', count: 32, badgeClass: 'bg-[#F39D1C]', id:2 },
+    { title: 'Fault', count: 32, badgeClass: 'bg-[#E50303]', id:3 }
 ])
 
 const bottomPanels = ref([
